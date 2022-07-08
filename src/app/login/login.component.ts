@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { WelcomeComponent } from '../welcome/welcome.component';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,7 @@ export class LoginComponent implements OnInit {
   // Add Router as Dependency Injection to route from Login to Welcome Page.
   // 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -23,6 +26,9 @@ export class LoginComponent implements OnInit {
 
   handleLogin(){
     if(this.username === "Nikhilgharge93@gmail.com" && this.password === "dummy"){
+
+      // Redirect to welcome page
+      this.router.navigate(['welcome']);
       this.invalidLogin = false;
     }else{
       this.invalidLogin = true;

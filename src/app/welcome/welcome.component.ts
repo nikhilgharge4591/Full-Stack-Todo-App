@@ -9,6 +9,7 @@ export class WelcomeComponent implements OnInit {
 
   message:String = 'Some welcome Message';
 
+  //ActivateRoute
   constructor() { }
 
   ngOnInit(): void {
