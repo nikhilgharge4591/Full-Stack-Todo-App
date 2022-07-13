@@ -1,7 +1,13 @@
-<div>
+<h1>Welcome</h1>
+
+<div class="container">
+
     Welcome {{name}}!!!.
+    You can manage your todo's <a routerLink = "/todos">here.</a> 
 </div>
 
-<div>
-    You can manage your todo's <a routerLink = "/todos">here.</a> 
+<div class="container">
+
+    Click here to get customized welcome message. 
+    <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome Message</button>
 </div>
