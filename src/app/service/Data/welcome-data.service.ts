@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WelcomeDataService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  executeHelloWorldService(){
-    console.log("Hello World");
+  executeHelloWorldServiceWithPathvariable(name:any){
+    return this.httpClient.get(`http://localhost:8080/hello-world/path-variable\${name}`);
+    //console.log("Hello World");
+  }
+
+  createBasicAuthenticationHeader(){
+    
   }
 }

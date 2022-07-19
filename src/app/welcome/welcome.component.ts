@@ -13,6 +13,8 @@ export class WelcomeComponent implements OnInit {
 
   message:String = 'Some welcome Message';
   name = '';
+  welcomeMessage: String = '';
+  errorMessage:String = '';
 
   //ActivateRoute
   constructor(private route:ActivatedRoute,
@@ -25,6 +27,19 @@ export class WelcomeComponent implements OnInit {
 
   getWelcomeMessage(){
     console.log("Get Welcome Message");
+    this.welcomeDataService.executeHelloWorldServiceWithPathvariable(this.name).subscribe(
+      (response:any) => {this.handleSuccessResponse(response)},
+      (error:any) => {this.handleErrorResponse(error)}
+    );
   }
+  
+  handleSuccessResponse(response: any){
+    this.welcomeMessage = response.message;
+  }
+
+  handleErrorResponse(error:any){
+    this.errorMessage = error.error.message;
+  }
+
 
 }
